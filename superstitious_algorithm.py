@@ -72,7 +72,7 @@ if __name__ == "__main__":
         print(str(calc(s1, s2)))
     elif mode == "2":
         print("Enter the filename you want to calculate.")
-        print("Names should be separated in \\n.")
+        print("In the file, names should be separated in \\n.")
         fn = input(prompt)
         names = []
         with open(fn, 'r') as nm:
