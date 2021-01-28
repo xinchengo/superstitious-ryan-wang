@@ -68,7 +68,7 @@ if __name__ == "__main__":
         for i in st2:
             # print(i)
             s2.append(i)
-        print(len(s1)+len(s2))
+        # print(len(s1)+len(s2))
         print(str(calc(s1, s2)))
     elif mode == "2":
         print("Enter the filename you want to calculate.")
@@ -80,9 +80,15 @@ if __name__ == "__main__":
                 names.append(line.strip())
         print("Enter the value n.")
         print("Only results larger than n will be displayed.")
-        n = input(prompt)
-        for i in names:
-            for j in names:
-                if calc(i, j) >= n:
-                    print("The value of "+i+" and " +
-                          j+" is "+str(calc(i, j))+".")
+        n = int(input(prompt))
+        for st1 in names:
+            for st2 in names:
+                s1 = []
+                s2 = []
+                for i in st1:
+                    s1.append(i)
+                for i in st2:
+                    s2.append(i)
+                if calc(s1, s2) >= n:
+                    print("The value of "+st1+" and " +
+                          st2+" is "+str(calc(s1, s2))+".")
