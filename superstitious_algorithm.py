@@ -1,13 +1,7 @@
 def get_stroke(c):
     if c == ' ':
         return 0
-    strokes = []
-    with open("strokes.txt", 'r') as fr:
-        for line in fr:
-            strokes.append(int(line.strip()))
-
     unicode_ = ord(c)
-
     if 13312 <= unicode_ <= 64045:
         return strokes[unicode_-13312]
     elif 131072 <= unicode_ <= 194998:
@@ -49,6 +43,10 @@ def calc(s1, s2):
 
 
 if __name__ == "__main__":
+    strokes = []
+    with open("strokes.txt", 'r') as fr:
+        for line in fr:
+            strokes.append(int(line.strip()))
     prompt = ">>> "
     print("Select what to do:")
     print("    1. calculate two names.")
@@ -59,16 +57,12 @@ if __name__ == "__main__":
         st1 = input(prompt)
         print("Enter the second name.")
         st2 = input(prompt)
-        #print(st1+" "+st2)
         s1 = []
         s2 = []
         for i in st1:
-            # print(i)
             s1.append(i)
         for i in st2:
-            # print(i)
             s2.append(i)
-        # print(len(s1)+len(s2))
         print(str(calc(s1, s2)))
     elif mode == "2":
         print("Enter the filename you want to calculate.")
